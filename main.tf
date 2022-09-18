@@ -25,21 +25,10 @@ locals {
     "us-west-2",
   ])
 
-  # Compute the regional shortname from component parts
-  continent_short_name = {
-    africa       = "af"
-    asiapacific  = "ap"
-    canada       = "ca"
-    europe       = "eu"
-    middleeast   = "me"
-    southamerica = "sa"
-    us           = "us"
-  }
-
   parts = var.region == null ? [] : split("-", var.region)
 
   region_short_name = var.region == null ? "" : join("", [
-    local.continent_short_name[local.parts[0]],
+    local.parts[0],
     replace(local.parts[1], "/(n)orth|(s)outh|(e)ast|(w)est|(c)entral/", "$1$2$3$4$5"),
     local.parts[2]
   ])
