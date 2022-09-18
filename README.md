@@ -1,4 +1,4 @@
-# terraform-aws-region-abbreviator-
+# terraform-aws-region-abbreviator
 This terraform module provides a way to get a meaningful abbreviated version for a region in AWS.
 For example, "eastus2" becomes "eus2". This module also always outputs a map for every region, which allows you to do multiple at once.
 
