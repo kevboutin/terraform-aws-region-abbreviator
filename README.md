@@ -17,7 +17,6 @@ module "utils" {
 
 locals {
   "use2" = module.utils.region_short_name
-  "euw1" = module.utils.region_short_name_map["eu-west-1"]
 }
 ```
 
@@ -26,7 +25,6 @@ The above results in locals with computed values of:
 ```
 locals {
   "us-east-2" = "use2"
-  "eu-west-1" = "euw1"
 }
 ```
 
@@ -38,7 +36,6 @@ Functional examples are included in the
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| additional\_regions | A user-supplied list of regions to extend the lookup map. | `list(string)` | `[]` | no |
 | region | The AWS region to retrieve a short name for (ex. `us-east-2`). | `string` | `null` | no |
 
 ## Outputs
@@ -46,7 +43,6 @@ Functional examples are included in the
 | Name | Description |
 |------|-------------|
 | region\_short\_name | The two to four character shortname of the region specified in var.region. |
-| region\_short\_name\_map | The two to four character shortname of any given region. |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
