@@ -17,7 +17,7 @@ module "utils" {
 
 locals {
   "use2" = module.utils.region_short_name
-  "euw1"  = module.utils.region_short_name_map["eu-west-1"]
+  "euw1" = module.utils.region_short_name_map["eu-west-1"]
 }
 ```
 
@@ -26,7 +26,7 @@ The above results in locals with computed values of:
 ```
 locals {
   "us-east-2" = "use2"
-  "eu-west-1"  = "euw1"
+  "eu-west-1" = "euw1"
 }
 ```
 
@@ -39,7 +39,7 @@ Functional examples are included in the
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | additional\_regions | A user-supplied list of regions to extend the lookup map. | `list(string)` | `[]` | no |
-| region | The Azure region to retrieve a short name for (ex. `us-east-2`). | `string` | `null` | no |
+| region | The AWS region to retrieve a short name for (ex. `us-east-2`). | `string` | `null` | no |
 
 ## Outputs
 
@@ -60,9 +60,9 @@ The following dependencies must be available:
 
 - [Terraform][terraform] >= v0.12, < v0.14
 
-### RBAC
+### ABAC
 
-An Azure RBAC is not needed for to use this module.
+An AWS ABAC is not needed for to use this module.
 
 ### APIs
 
