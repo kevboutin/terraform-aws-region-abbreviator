@@ -32,4 +32,20 @@ locals {
     replace(local.parts[1], "/(n)orth|(s)outh|(e)ast|(w)est|(c)entral/", "$1$2$3$4$5"),
     local.parts[2]
   ])
+
+  # Same computation but kick back a map
+  region_short_name_map = { for full_region in local.regions : full_region =>
+    join(
+      "", [
+        split("-", full_region)[0],
+        replace(
+          split(
+          "-", full_region)[1],
+          "/(n)orth|(s)outh|(e)ast|(w)est|(c)entral/",
+          "$1$2$3$4$5"
+        ),
+        split("-", full_region)[2],
+      ]
+    )
+  }
 }
